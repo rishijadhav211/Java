@@ -2,6 +2,7 @@
 class BirdWatcher {
     private final int[] birdsPerDay;
     private final int[] lastWeekCount={0, 2, 5, 3, 7, 8, 4};
+    private final int MIN_BIRDS_FOR_BUSY_DAY= 5;
 
     public BirdWatcher(int[] birdsPerDay) {
         this.birdsPerDay = birdsPerDay.clone();
@@ -28,15 +29,26 @@ class BirdWatcher {
         return false;
     }
 
-    public int getCountForFirstDays(int numberOfDays) {
+    public int getCountForFirstDays(int firstNumberOfDays) {
+        if(firstNumberOfDays > birdsPerDay.length){
+            firstNumberOfDays=birdsPerDay.length;
+        }
+
         int totalVisitCount=0;
-        for(int i=0;i<numberOfDays;i++){
+        for(int i=0;i<firstNumberOfDays;i++){
             totalVisitCount+=birdsPerDay[i];
         }
         return totalVisitCount;
     }
 
     public int getBusyDays() {
-        int contOf
+        int countOfBusyDays=0;
+
+        for(int count:birdsPerDay){
+            if(count>=MIN_BIRDS_FOR_BUSY_DAY){
+                countOfBusyDays++;
+            }
+        }
+        return countOfBusyDays;
     }
 }
