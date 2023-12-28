@@ -9,29 +9,29 @@ class FactorialTest {
     @Test
     public void testForZero() {
         Factorial factorial = new Factorial();
-        int result=factorial.findFactorial(0);
+        int result=factorial.find(0);
         assertEquals(1,result);
     }
 
     @Test
     public void testForOne() {
         Factorial factorial = new Factorial();
-        int result=factorial.findFactorial(1);
+        int result=factorial.find(1);
         assertEquals(1,result);
     }
 
     @Test
     public void testForNegative() {
         Factorial factorial = new Factorial();
-        int result=factorial.findFactorial(-3);
+        int result=factorial.find(-3);
         assertEquals(1,result);
     }
 
     @Test
     public void testForPositiveNumber() {
-        Factorial factorial = new Factorial();
-        int result=factorial.findFactorial(5);
-        assertEquals(120,result);
+        Factorial factorial = new Factorial();//arrange
+        int result=factorial.find(5);//act
+        assertEquals(120,result);//assert
     }
 
 }
