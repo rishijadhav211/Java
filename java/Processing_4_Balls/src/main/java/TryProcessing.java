@@ -4,8 +4,7 @@ public class TryProcessing extends PApplet {
 
     public static final int HEIGHT = 500;
     public static final int WIDTH = 500;
-    public static final int DIAMETER = 10;
-    public static int horizontalPosition =1;
+    public static int positionOnXAxis =1;
 /*
     shared with all circle so declared in parent class,also can not be declared in nested class
 */
@@ -37,28 +36,10 @@ public class TryProcessing extends PApplet {
 
     @Override
     public void draw() {
-        circle1.display();
-        circle2.display();
-        circle3.display();
-        circle4.display();
-        horizontalPosition++;
-    }
-
-    class Circle {
-        private final float  horizontalSpeed;
-        private final float verticalPosition;
-
-        Circle(float HorizontalSpeed, float verticalPosition) {
-            this.horizontalSpeed=HorizontalSpeed;
-            this.verticalPosition = verticalPosition;
-        }
-
-        void display() {
-            drawCircle();
-        }
-
-        private void drawCircle() {
-            ellipse(TryProcessing.horizontalPosition * this.horizontalSpeed, verticalPosition, DIAMETER, DIAMETER);
-        }
+        circle1.drawCircle(this);
+        circle2.drawCircle(this);
+        circle3.drawCircle(this);
+        circle4.drawCircle(this);
+        positionOnXAxis++;
     }
 }
